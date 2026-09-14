@@ -24,7 +24,7 @@ class HomeScreen extends StatelessWidget {
           itemBuilder: (context, index) {
             return Container(
               padding: const EdgeInsets.all(20),
-              color: Colors.blueGrey.withOpacity(0.05),
+              color: Colors.blueGrey.withValues(alpha: 0.05),
             );
           },
         ),
