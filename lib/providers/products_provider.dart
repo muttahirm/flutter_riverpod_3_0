@@ -47,11 +47,6 @@ const List<Product> allProducts = [
       image: 'assets/products/guitar.png'),
 ];
 
-final reducedProductsProvider = Provider<List<Product>>(
-  (ref) {
-    return allProducts.where((product) => product.price < 50).toList();
-  },
-);
 //generated riverpod provider for productsProvider
 @riverpod
 List<Product> products(ref) {
@@ -62,3 +57,16 @@ List<Product> products(ref) {
 // final productsProvider = Provider<List<Product>>((ref) {
 //   return allProducts;
 // });
+
+//generated riverpod provider for reducedProductsProvider
+@riverpod
+List<Product> reducedProducts(ref) {
+  return allProducts.where((product) => product.price < 50).toList();
+}
+
+//Old way of creating a provider for reducedProductsProvider
+// final reducedProductsProvider = Provider<List<Product>>(
+//   (ref) {
+//     return allProducts.where((product) => product.price < 50).toList();
+//   },
+// );

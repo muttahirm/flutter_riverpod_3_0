@@ -49,3 +49,44 @@ final class ProductsProvider
 }
 
 String _$productsHash() => r'48c888b003496256deeeaee20811324bf5f8ab85';
+
+@ProviderFor(reducedProducts)
+final reducedProductsProvider = ReducedProductsProvider._();
+
+final class ReducedProductsProvider
+    extends $FunctionalProvider<List<Product>, List<Product>, List<Product>>
+    with $Provider<List<Product>> {
+  ReducedProductsProvider._()
+      : super(
+          from: null,
+          argument: null,
+          retry: null,
+          name: r'reducedProductsProvider',
+          isAutoDispose: true,
+          dependencies: null,
+          $allTransitiveDependencies: null,
+        );
+
+  @override
+  String debugGetCreateSourceHash() => _$reducedProductsHash();
+
+  @$internal
+  @override
+  $ProviderElement<List<Product>> $createElement($ProviderPointer pointer) =>
+      $ProviderElement(pointer);
+
+  @override
+  List<Product> create(Ref ref) {
+    return reducedProducts(ref);
+  }
+
+  /// {@macro riverpod.override_with_value}
+  Override overrideWithValue(List<Product> value) {
+    return $ProviderOverride(
+      origin: this,
+      providerOverride: $SyncValueProvider<List<Product>>(value),
+    );
+  }
+}
+
+String _$reducedProductsHash() => r'99869dd18804fe4cc9fd63a7964c39fea2df575c';
