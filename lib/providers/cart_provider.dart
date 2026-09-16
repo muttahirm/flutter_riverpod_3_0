@@ -7,6 +7,16 @@ class CartNotifier extends Notifier<Set<Product>> {
   Set<Product> build() {
     return {};
   }
+
+  void add(Product product) {
+    if (!state.contains(product)) {
+      state = {...state, product};
+    }
+  }
+
+  void remove(Product product) {
+    state = state.where((p) => p.id != product.id).toSet();
+  }
 }
 
 // Old way of creating a provider for cartProvider
